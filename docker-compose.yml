@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  efpractice:
+    image: efpractice
+    build:
+      context: .
+      dockerfile: EFPractice/Dockerfile
