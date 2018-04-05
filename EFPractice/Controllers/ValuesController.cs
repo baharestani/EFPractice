@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EFPractice.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFPractice.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly MyContext myContext;
+
+        public ValuesController(MyContext myContext)
+        {
+            this.myContext = myContext ?? throw new ArgumentNullException(nameof(myContext));
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var books = await myContext.Book.Select(b => b.Title).ToListAsync();
+
+            return books;
         }
 
         // GET api/values/5
