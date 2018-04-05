@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: EFPractice/Dockerfile
+    environment:
+      ConnectionString: "Server=192.168.99.100;Database=test;Uid=root;Pwd=sc4m@th;"
   db:
     image: mysql
     restart: always
