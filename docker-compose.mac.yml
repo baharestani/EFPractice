@@ -4,3 +4,5 @@ services:
   efpractice:
     environment:
       ConnectionString: "Server=localhost;Database=test;Uid=root;Pwd=sc4m@th;"
+    ports:
+      - "80:80"
