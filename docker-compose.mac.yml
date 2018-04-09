@@ -3,6 +3,7 @@ version: '3'
 services:
   efpractice:
     environment:
-      ConnectionString: "Server=localhost;Database=test;Uid=root;Pwd=sc4m@th;"
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server=192.168.1.15;Database=test;Uid=root;Pwd=sc4m@th;
     ports:
       - "80:80"
